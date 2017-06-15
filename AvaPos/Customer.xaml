@@ -59,28 +59,28 @@
 
 
         <!--<Label x:Name="lblDocumentType" Content="Tipo documento" HorizontalAlignment="Right"  VerticalAlignment="Center" Grid.Row="3" Height="26"  Width="105"  />-->
-        <ComboBox x:Name="ddlDocumentType" HorizontalAlignment="Center"   VerticalAlignment="Center"  MinWidth="120"  Grid.Row="3" materialDesign:HintAssist.Hint="Tipo documento" Style="{StaticResource MaterialDesignFloatingHintComboBox}"  />
+        <ComboBox HorizontalAlignment="Center"   VerticalAlignment="Center"  MinWidth="120"  Grid.Row="3" materialDesign:HintAssist.Hint="Tipo documento" Style="{StaticResource MaterialDesignFloatingHintComboBox}"  />
         <!--<Label x:Name="lblDocument" Content="Documento" HorizontalAlignment="Right"   VerticalAlignment="Center"  Grid.Column="2" Grid.Row="3" Height="26" Width="77"/>-->
-        <TextBox x:Name="txtDocument" HorizontalAlignment="Center"   TextWrapping="Wrap" VerticalAlignment="Center" MinWidth="120" Grid.Column="1" Grid.Row="3" materialDesign:HintAssist.Hint="Documento" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+        <TextBox HorizontalAlignment="Center"   TextWrapping="Wrap" VerticalAlignment="Center" MinWidth="120" Grid.Column="1" Grid.Row="3" materialDesign:HintAssist.Hint="Documento" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
 
         <!--<Label x:Name="lblName" Content="Nombres" HorizontalAlignment="Right"  VerticalAlignment="Center"  Grid.Row="4" Height="26" Width="63" />-->
-        <TextBox x:Name="txtCustomerName_Copy" HorizontalAlignment="Center"  MinWidth="120" TextWrapping="Wrap" VerticalAlignment="Center" Grid.Row="4" materialDesign:HintAssist.Hint="Nombres" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+        <TextBox HorizontalAlignment="Center"  MinWidth="120" TextWrapping="Wrap" VerticalAlignment="Center" Grid.Row="4" materialDesign:HintAssist.Hint="Nombres" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
         <!--<Label x:Name="lblLastName" Content="Apellidos" HorizontalAlignment="Right"  VerticalAlignment="Center"  Grid.Column="2" Grid.Row="4" Height="26" Width="63" />-->
-        <TextBox x:Name="txtCustomerName" HorizontalAlignment="Center" MinWidth="120" TextWrapping="Wrap" VerticalAlignment="Center" Grid.Column="1" Grid.Row="4"  materialDesign:HintAssist.Hint="Apellidos" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+        <TextBox HorizontalAlignment="Center" MinWidth="120" TextWrapping="Wrap" VerticalAlignment="Center" Grid.Column="1" Grid.Row="4"  materialDesign:HintAssist.Hint="Apellidos" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
 
 
         <!--<Label x:Name="lblDateBird" Content="Fecha nacimiento" HorizontalAlignment="Right"  VerticalAlignment="Center"  Grid.Row="5" Height="26" Width="110" />-->
         <DatePicker HorizontalAlignment="Center"  VerticalAlignment="Center" MinWidth="120" Grid.Row="5" materialDesign:HintAssist.Hint="Fecha nacimiento" Style="{StaticResource MaterialDesignFloatingHintDatePicker}"/>
         <!--<Label x:Name="lblGender" Content="Genero" HorizontalAlignment="Right"  VerticalAlignment="Center"  Grid.Column="2" Grid.Row="5"  />-->
-        <ComboBox x:Name="ddlGender" HorizontalAlignment="Center"  VerticalAlignment="Center" Grid.Column="1" Grid.Row="5" MinWidth="120"  materialDesign:HintAssist.Hint="Genero" Style="{StaticResource MaterialDesignFloatingHintComboBox}"/>
+        <ComboBox HorizontalAlignment="Center"  VerticalAlignment="Center" Grid.Column="1" Grid.Row="5" MinWidth="120"  materialDesign:HintAssist.Hint="Genero" Style="{StaticResource MaterialDesignFloatingHintComboBox}"/>
 
         <!--<Label x:Name="lblAddress" Content="Dirección" HorizontalAlignment="Right"  VerticalAlignment="Center"  Grid.Row="6" />-->
-        <TextBox x:Name="txtAddress" HorizontalAlignment="Center"  TextWrapping="Wrap" MinWidth="120" VerticalAlignment="Center" Grid.Row="6" materialDesign:HintAssist.Hint="Dirección" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+        <TextBox HorizontalAlignment="Center"  TextWrapping="Wrap" MinWidth="120" VerticalAlignment="Center" Grid.Row="6" materialDesign:HintAssist.Hint="Dirección" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
         <!--<Label x:Name="lblPhoneNumber" Content="Teléfono" HorizontalAlignment="Right"  VerticalAlignment="Center"  Grid.Column="2" Grid.Row="6" />-->
-        <TextBox x:Name="txtPhoneNumber" HorizontalAlignment="Center"  TextWrapping="Wrap" MinWidth="120" VerticalAlignment="Center" Grid.Column="1" Grid.Row="6" materialDesign:HintAssist.Hint="Teléfono" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  />
+        <TextBox HorizontalAlignment="Center"  TextWrapping="Wrap" MinWidth="120" VerticalAlignment="Center" Grid.Column="1" Grid.Row="6" materialDesign:HintAssist.Hint="Teléfono" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  />
 
         <!--<Label x:Name="lblCellphoneNumber" Content="Celular" HorizontalAlignment="Center"  VerticalAlignment="Center"  Grid.Row="7" />-->
-        <TextBox x:Name="txtCellphoneNumber" HorizontalAlignment="Center" TextWrapping="Wrap" MinWidth="120" VerticalAlignment="Center" Grid.Row="7" Grid.Column="0"  materialDesign:HintAssist.Hint="Celular" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+        <TextBox HorizontalAlignment="Center" TextWrapping="Wrap" MinWidth="120" VerticalAlignment="Center" Grid.Row="7" Grid.Column="0"  materialDesign:HintAssist.Hint="Celular" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
         <!--<TextBox x:Name="txtCellphoneNumberHint" HorizontalAlignment="Center"  TextWrapping="Wrap" MinWidth="120" VerticalAlignment="Center" Grid.Row="7" Grid.Column="2"  materialDesign:HintAssist.Hint="Floating Hint" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />-->
 
         <DataGrid HorizontalAlignment="Center" Margin="15,13,5,3" VerticalAlignment="Center" Grid.ColumnSpan="4" Height="160" Width="553" SelectionChanged="DataGrid_SelectionChanged" Grid.Row="8">
