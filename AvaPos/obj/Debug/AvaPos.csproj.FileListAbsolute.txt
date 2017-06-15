@@ -23,3 +23,6 @@ G:\Pedro\Personal\OneDrive\Proyectos\AvaPos\AvaPos\obj\Debug\AvaPos.Properties.R
 G:\Pedro\Personal\OneDrive\Proyectos\AvaPos\AvaPos\obj\Debug\AvaPos.csproj.GenerateResource.Cache
 G:\Pedro\Personal\OneDrive\Proyectos\AvaPos\AvaPos\obj\Debug\AvaPos.exe
 G:\Pedro\Personal\OneDrive\Proyectos\AvaPos\AvaPos\obj\Debug\AvaPos.pdb
+C:\Users\Yilmar\Desktop\AVC2\AVC\AvaPos\bin\Debug\AvaPos.exe.config
+C:\Users\Yilmar\Desktop\AVC2\AVC\AvaPos\obj\Debug\AvaPos.exe
+C:\Users\Yilmar\Desktop\AVC2\AVC\AvaPos\obj\Debug\AvaPos.pdb
