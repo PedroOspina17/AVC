@@ -1,0 +1,10 @@
+G:\Pedro\Personal\OneDrive\Proyectos\AvaPos\Bussines\bin\Debug\Bussines.dll.config
+G:\Pedro\Personal\OneDrive\Proyectos\AvaPos\Bussines\bin\Debug\Bussines.dll
+G:\Pedro\Personal\OneDrive\Proyectos\AvaPos\Bussines\bin\Debug\Bussines.pdb
+G:\Pedro\Personal\OneDrive\Proyectos\AvaPos\Bussines\bin\Debug\EntityFramework.dll
+G:\Pedro\Personal\OneDrive\Proyectos\AvaPos\Bussines\bin\Debug\EntityFramework.SqlServer.dll
+G:\Pedro\Personal\OneDrive\Proyectos\AvaPos\Bussines\bin\Debug\EntityFramework.xml
+G:\Pedro\Personal\OneDrive\Proyectos\AvaPos\Bussines\bin\Debug\EntityFramework.SqlServer.xml
+G:\Pedro\Personal\OneDrive\Proyectos\AvaPos\Bussines\obj\Debug\Bussines.csprojResolveAssemblyReference.cache
+G:\Pedro\Personal\OneDrive\Proyectos\AvaPos\Bussines\obj\Debug\Bussines.dll
+G:\Pedro\Personal\OneDrive\Proyectos\AvaPos\Bussines\obj\Debug\Bussines.pdb
