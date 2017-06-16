@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Business.ViewModel
 {
 
-    public class CustomerViewModel
+    public class CustomerViewModel : INotifyPropertyChanged
     {
         private Model.Person ModelPerson = new Model.Person();
         private Model.Customer ModelCustomer = new Model.Customer();
@@ -26,13 +28,13 @@ namespace Business.ViewModel
         public Model.DocumentType DocumentType
         {
             get { return ModelPerson.DocumentType; }
-            set { ModelPerson.DocumentType = value; }
+            set { ModelPerson.DocumentType = value; OnPropertyChange(); }
         }
 
         public string Document
         {
             get { return ModelPerson.DocumentNumber; }
-            set { ModelPerson.DocumentNumber = value; }
+            set { ModelPerson.DocumentNumber = value; OnPropertyChange(); }
         }
 
         public string Name
@@ -43,7 +45,7 @@ namespace Business.ViewModel
             }
             set
             {
-                ModelPerson.FirstName = value;
+                ModelPerson.FirstName = value; OnPropertyChange(); 
             }
         }
 
@@ -55,7 +57,7 @@ namespace Business.ViewModel
             }
             set
             {
-                ModelPerson.LastName = value;
+                ModelPerson.LastName = value; OnPropertyChange(); 
             }
         }
 
@@ -77,7 +79,7 @@ namespace Business.ViewModel
             }
             set
             {
-                ModelPerson.DateBird = value;
+                ModelPerson.DateBird = value; OnPropertyChange(); 
             }
         }
 
@@ -85,11 +87,11 @@ namespace Business.ViewModel
         {
             get
             {
-                return ModelPerson.Gender;
+                return ModelPerson.Gender == "M" ? "Masculino" : "Femenino";
             }
             set
             {
-                ModelPerson.Gender = value;
+                ModelPerson.Gender = value == "Masculino" ? "M" : "F";
             }
         }
 
@@ -101,7 +103,7 @@ namespace Business.ViewModel
             }
             set
             {
-                ModelPerson.Address = value;
+                ModelPerson.Address = value; OnPropertyChange(); 
             }
         }
         public String PhoneNumber
@@ -112,7 +114,7 @@ namespace Business.ViewModel
             }
             set
             {
-                ModelPerson.PhoneNumber = value;
+                ModelPerson.PhoneNumber = value; OnPropertyChange(); 
             }
         }
         public String CellphoneNumber
@@ -123,7 +125,7 @@ namespace Business.ViewModel
             }
             set
             {
-                ModelPerson.CellphoneNumber = value;
+                ModelPerson.CellphoneNumber = value; OnPropertyChange(); 
             }
         }
 
@@ -135,7 +137,7 @@ namespace Business.ViewModel
             }
             set
             {
-                ModelCustomer.Active = value;
+                ModelCustomer.Active = value; OnPropertyChange(); 
             }
         }
 
@@ -144,26 +146,64 @@ namespace Business.ViewModel
             get { return db.DocumentType.ToList(); }
         }
 
-        public List<CustomerViewModel> GetAll()
+
+
+        //public List<CustomerViewModel> GetAll()
+        public List<CustomerViewModel> CustomerList
+        {
+            get
+            {
+                try
+                {
+                    List<Model.Customer> Customers = (from p in db.Person
+                                                      join c in db.Customer on p.Id equals c.PersonId
+                                                      select c).ToList();
+
+                    List<CustomerViewModel> CustomerViewModels = new List<CustomerViewModel>();
+                    foreach (Model.Customer oCustomer in Customers)
+                    {
+                        CustomerViewModels.Add(new CustomerViewModel(oCustomer));
+                    }
+                    return CustomerViewModels;
+
+                }
+                catch (Exception ex)
+                {
+
+                    throw ex;
+                }
+            }
+        }
+
+        public void Save()
         {
             try
             {
-                List<Model.Customer> Customers = (from p in db.Person
-                                                  join c in db.Customer on p.Id equals c.PersonId
-                                                  select c).ToList();
-
-                List<CustomerViewModel> CustomerViewModels = new List<CustomerViewModel>();
-                foreach (Model.Customer oCustomer in Customers)
+                if(ModelPerson.Id > 0)
                 {
-                    CustomerViewModels.Add(new CustomerViewModel(oCustomer));
+                    db.Entry<Model.Person>(ModelPerson).State = System.Data.Entity.EntityState.Modified;
                 }
-                return CustomerViewModels;
-
+                else
+                {
+                    db.Person.Add(ModelPerson);
+                }
+                db.SaveChanges();
+                OnPropertyChange("CustomerList");
             }
-            catch (Exception ex)
+            catch (Exception EX)
             {
+                
+                throw;
+            }
+        }
 
-                throw ex;
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void OnPropertyChange([CallerMemberName] string PropertyName = "")
+        {
+            if(PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(PropertyName));
             }
         }
     }

@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Business.ViewModel;
 
+
 namespace AvaPos
 {
     /// <summary>
@@ -43,7 +44,7 @@ namespace AvaPos
         }
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-
+            oCustomer.Save();
         }
         
     }
