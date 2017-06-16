@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{86135FF6-B6BD-4349-A7CC-625F0DC9AADA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Bussines</RootNamespace>
+    <AssemblyName>Bussines</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Model\City.cs">
+      <DependentUpon>Model_APos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CountCash.cs">
+      <DependentUpon>Model_APos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Customer.cs">
+      <DependentUpon>Model_APos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Deparment.cs">
+      <DependentUpon>Model_APos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DocumentType.cs">
+      <DependentUpon>Model_APos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Employee.cs">
+      <DependentUpon>Model_APos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Model_APos.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_APos.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Model_APos.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_APos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Model_APos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_APos.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Module.cs">
+      <DependentUpon>Model_APos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ModulesByProfiles.cs">
+      <DependentUpon>Model_APos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ModuleType.cs">
+      <DependentUpon>Model_APos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PaymentType.cs">
+      <DependentUpon>Model_APos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Person.cs">
+      <DependentUpon>Model_APos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Product.cs">
+      <DependentUpon>Model_APos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Profile.cs">
+      <DependentUpon>Model_APos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Sale.cs">
+      <DependentUpon>Model_APos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\SaleDetails.cs">
+      <DependentUpon>Model_APos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\SalePayment.cs">
+      <DependentUpon>Model_APos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\UserAccount.cs">
+      <DependentUpon>Model_APos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\CustomerViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="Model\Model_APos.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model_APos.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="Model\Model_APos.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model_APos.edmx</DependentUpon>
+      <LastGenOutput>Model_APos.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Model\Model_APos.edmx.diagram">
+      <DependentUpon>Model_APos.edmx</DependentUpon>
+    </None>
+    <None Include="Model\Model_APos.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model_APos.edmx</DependentUpon>
+      <LastGenOutput>Model_APos.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
