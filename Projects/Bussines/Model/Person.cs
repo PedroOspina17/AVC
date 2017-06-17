@@ -21,7 +21,6 @@ namespace Business.Model
         }
     
         public int Id { get; set; }
-        public int DocTypeId { get; set; }
         public int CityId { get; set; }
         public string DocumentNumber { get; set; }
         public string FirstName { get; set; }
@@ -32,10 +31,11 @@ namespace Business.Model
         public string PhoneNumber { get; set; }
         public string CellphoneNumber { get; set; }
         public System.DateTime CreationDate { get; set; }
+        public int DocumentTypeId { get; set; }
     
         public virtual City City { get; set; }
         public virtual ICollection<Customer> Customer { get; set; }
-        public virtual DocumentType DocumentType { get; set; }
         public virtual ICollection<Employee> Employee { get; set; }
+        public virtual DocumentType DocumentType { get; set; }
     }
 }

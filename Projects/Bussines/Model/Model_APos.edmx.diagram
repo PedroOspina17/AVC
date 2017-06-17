@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="9b4963cec04044598ab0e64041077d3b" Name="Diagram1" ZoomLevel="64">
+      <Diagram DiagramId="9b4963cec04044598ab0e64041077d3b" Name="Diagram1" ZoomLevel="109">
         <EntityTypeShape EntityType="PosModel.City" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
         <EntityTypeShape EntityType="PosModel.CountCash" Width="1.5" PointX="9.75" PointY="9.125" IsExpanded="true" />
         <EntityTypeShape EntityType="PosModel.Customer" Width="1.5" PointX="7.5" PointY="6.375" IsExpanded="true" />
@@ -27,7 +27,6 @@
         <AssociationConnector Association="PosModel.FK__CountCash__Emplo__4316F928" ManuallyRouted="false" />
         <AssociationConnector Association="PosModel.FK__Customer__Person__30F848ED" ManuallyRouted="false" />
         <AssociationConnector Association="PosModel.FK__Sale__CustomerId__35BCFE0A" ManuallyRouted="false" />
-        <AssociationConnector Association="PosModel.FK__Person__DocTypeI__267ABA7A" ManuallyRouted="false" />
         <AssociationConnector Association="PosModel.FK__Employee__Person__2B3F6F97" ManuallyRouted="false" />
         <AssociationConnector Association="PosModel.FK__Sale__EmployeeId__36B12243" ManuallyRouted="false" />
         <AssociationConnector Association="PosModel.FK__UserAccou__Emplo__5070F446" ManuallyRouted="false" />
@@ -40,6 +39,7 @@
         <AssociationConnector Association="PosModel.FK__UserAccou__Profi__5165187F" ManuallyRouted="false" />
         <AssociationConnector Association="PosModel.FK__SaleDetai__SaleI__398D8EEE" ManuallyRouted="false" />
         <AssociationConnector Association="PosModel.FK__SalePayme__SaleI__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="PosModel.FK__Person__DocTypeI__267ABA7A1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

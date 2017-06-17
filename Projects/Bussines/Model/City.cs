@@ -24,7 +24,7 @@ namespace Business.Model
         public string Name { get; set; }
         public string Description { get; set; }
         public int Active { get; set; }
-        public string Estado { get; set; }
+    
         public virtual Deparment Deparment { get; set; }
         public virtual ICollection<Person> Person { get; set; }
     }

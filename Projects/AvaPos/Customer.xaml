@@ -38,6 +38,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="3*"/>
 
         </Grid.RowDefinitions>
@@ -59,7 +60,7 @@
 
 
         <!--<Label x:Name="lblDocumentType" Content="Tipo documento" HorizontalAlignment="Right"  VerticalAlignment="Center" Grid.Row="3" Height="26"  Width="105"  />-->
-        <ComboBox HorizontalAlignment="Center"   VerticalAlignment="Center"  MinWidth="120" Grid.Row="3" materialDesign:HintAssist.Hint="Tipo documento" Style="{StaticResource MaterialDesignFloatingHintComboBox}" ItemsSource="{Binding DocumentTypes}" DisplayMemberPath="Name" SelectedValuePath="Id"  SelectedItem="{Binding DocumentType}" IsEditable="True"/>
+        <ComboBox HorizontalAlignment="Center"   VerticalAlignment="Center"  MinWidth="120" Grid.Row="3" materialDesign:HintAssist.Hint="Tipo documento" Style="{StaticResource MaterialDesignFloatingHintComboBox}" ItemsSource="{Binding DocumentTypes}" DisplayMemberPath="Name" SelectedValuePath="Id"  SelectedItem="{Binding DocumentType}" IsEditable="True"/><ComboBox HorizontalAlignment="Center"   VerticalAlignment="Center"  MinWidth="120" Grid.Row="3" materialDesign:HintAssist.Hint="Tipo documento" Style="{StaticResource MaterialDesignFloatingHintComboBox}" ItemsSource="{Binding DocumentTypes}" DisplayMemberPath="Name" SelectedValuePath="Id"  SelectedItem="{Binding DocumentType}" IsEditable="True"/>
         <!--<Label x:Name="lblDocument" Content="Documento" HorizontalAlignment="Right"   VerticalAlignment="Center"  Grid.Column="2" Grid.Row="3" Height="26" Width="77"/>-->
         <TextBox HorizontalAlignment="Center"   TextWrapping="Wrap" VerticalAlignment="Center" MinWidth="120" Grid.Column="1" Grid.Row="3" materialDesign:HintAssist.Hint="Documento" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="{Binding DocumentNumber}" />
 
@@ -85,9 +86,12 @@
         <!--<Label x:Name="lblCellphoneNumber" Content="Celular" HorizontalAlignment="Center"  VerticalAlignment="Center"  Grid.Row="7" />-->
         <TextBox HorizontalAlignment="Center" TextWrapping="Wrap" MinWidth="120" VerticalAlignment="Center" Grid.Row="7" Grid.Column="0"  materialDesign:HintAssist.Hint="Celular" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="{Binding CellphoneNumber}"/>
         <!--<TextBox x:Name="txtCellphoneNumberHint" HorizontalAlignment="Center"  TextWrapping="Wrap" MinWidth="120" VerticalAlignment="Center" Grid.Row="7" Grid.Column="2"  materialDesign:HintAssist.Hint="Floating Hint" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />-->
-        <CheckBox Content="Activo" Grid.Column="1" HorizontalAlignment="Left" Margin="0,0,0,0" Grid.Row="7" VerticalAlignment="Center" materialDesign:HintAssist.Hint="Activo" IsChecked="{Binding Active}"/>
 
-        <DataGrid HorizontalAlignment="Center" Margin="15,13,5,3" VerticalAlignment="Center" Grid.ColumnSpan="4" Height="160" Width="553" Grid.Row="8" ItemsSource="{Binding CustomerList}">
+        <ComboBox HorizontalAlignment="Center"   VerticalAlignment="Center"  MinWidth="120" Grid.Row="7" materialDesign:HintAssist.Hint="Ciudad" Style="{StaticResource MaterialDesignFloatingHintComboBox}" ItemsSource="{Binding Cities}" DisplayMemberPath="Name" SelectedValuePath="Id"  SelectedItem="{Binding City}" IsEditable="True"/>
+
+        <CheckBox Content="Activo" Grid.Column="1" HorizontalAlignment="Left" Margin="0,0,0,0" Grid.Row="8" VerticalAlignment="Center" materialDesign:HintAssist.Hint="Activo" IsChecked="{Binding Active}"/>
+
+        <DataGrid HorizontalAlignment="Center" Margin="15,13,5,3" VerticalAlignment="Center" Grid.ColumnSpan="4" Height="160" Width="553" Grid.Row="9" ItemsSource="{Binding CustomerList}">
             <DataGrid.Columns>
                 <DataGridTextColumn  Binding="{Binding Document}" Width="*" Header="Identificacion"/>
                 <DataGridTextColumn Binding="{Binding FristName}" Width="*" ClipboardContentBinding="{x:Null}" Header="Nombres"/>

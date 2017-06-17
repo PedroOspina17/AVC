@@ -106,7 +106,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="DocTypeId" Type="int" Nullable="false" />
+          <Property Name="DocumentTypeId" Type="int" Nullable="false" />
           <Property Name="CityId" Type="int" Nullable="false" />
           <Property Name="DocumentNumber" Type="varchar" MaxLength="15" Nullable="false" />
           <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
@@ -300,7 +300,7 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Person">
-              <PropertyRef Name="DocTypeId" />
+              <PropertyRef Name="DocumentTypeId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -548,7 +548,7 @@
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="Active" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Person" Relationship="Self.FK__Person__DocTypeI__267ABA7A" FromRole="DocumentType" ToRole="Person" />
+          <NavigationProperty Name="Person" Relationship="PosModel.FK__Person__DocTypeI__267ABA7A1" FromRole="DocumentType" ToRole="Person" />
         </EntityType>
         <EntityType Name="Employee">
           <Key>
@@ -615,7 +615,6 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="DocTypeId" Type="Int32" Nullable="false" />
           <Property Name="CityId" Type="Int32" Nullable="false" />
           <Property Name="DocumentNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
@@ -628,8 +627,9 @@
           <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="City" Relationship="Self.FK__Person__CityId__276EDEB3" FromRole="Person" ToRole="City" />
           <NavigationProperty Name="Customer" Relationship="Self.FK__Customer__Person__30F848ED" FromRole="Person" ToRole="Customer" />
-          <NavigationProperty Name="DocumentType" Relationship="Self.FK__Person__DocTypeI__267ABA7A" FromRole="Person" ToRole="DocumentType" />
           <NavigationProperty Name="Employee" Relationship="Self.FK__Employee__Person__2B3F6F97" FromRole="Person" ToRole="Employee" />
+          <Property Name="DocumentTypeId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DocumentType" Relationship="PosModel.FK__Person__DocTypeI__267ABA7A1" FromRole="Person" ToRole="DocumentType" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -767,18 +767,6 @@
             </Principal>
             <Dependent Role="Sale">
               <PropertyRef Name="CustomerId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Person__DocTypeI__267ABA7A">
-          <End Role="DocumentType" Type="Self.DocumentType" Multiplicity="1" />
-          <End Role="Person" Type="Self.Person" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="DocumentType">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Person">
-              <PropertyRef Name="DocTypeId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -964,10 +952,6 @@
             <End Role="Customer" EntitySet="Customer" />
             <End Role="Sale" EntitySet="Sale" />
           </AssociationSet>
-          <AssociationSet Name="FK__Person__DocTypeI__267ABA7A" Association="Self.FK__Person__DocTypeI__267ABA7A">
-            <End Role="DocumentType" EntitySet="DocumentType" />
-            <End Role="Person" EntitySet="Person" />
-          </AssociationSet>
           <AssociationSet Name="FK__Employee__Person__2B3F6F97" Association="Self.FK__Employee__Person__2B3F6F97">
             <End Role="Person" EntitySet="Person" />
             <End Role="Employee" EntitySet="Employee" />
@@ -1016,7 +1000,23 @@
             <End Role="Sale" EntitySet="Sale" />
             <End Role="SalePayment" EntitySet="SalePayment" />
           </AssociationSet>
+          <AssociationSet Name="FK__Person__DocTypeI__267ABA7A1" Association="PosModel.FK__Person__DocTypeI__267ABA7A1">
+            <End Role="DocumentType" EntitySet="DocumentType" />
+            <End Role="Person" EntitySet="Person" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="FK__Person__DocTypeI__267ABA7A1">
+          <End Type="PosModel.DocumentType" Role="DocumentType" Multiplicity="1" />
+          <End Type="PosModel.Person" Role="Person" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DocumentType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Person">
+              <PropertyRef Name="DocumentTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1132,8 +1132,8 @@
           <EntitySetMapping Name="Person">
             <EntityTypeMapping TypeName="PosModel.Person">
               <MappingFragment StoreEntitySet="Person">
+                <ScalarProperty Name="DocumentTypeId" ColumnName="DocumentTypeId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="DocTypeId" ColumnName="DocTypeId" />
                 <ScalarProperty Name="CityId" ColumnName="CityId" />
                 <ScalarProperty Name="DocumentNumber" ColumnName="DocumentNumber" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
