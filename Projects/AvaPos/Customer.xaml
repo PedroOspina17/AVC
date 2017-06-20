@@ -13,7 +13,9 @@
         TextOptions.TextFormattingMode="Ideal" 
         TextOptions.TextRenderingMode="Auto"        
         Background="{DynamicResource MaterialDesignPaper}"
-        FontFamily="{DynamicResource MaterialDesignFont}" Loaded="wCustomers_Loaded">
+        FontFamily="{DynamicResource MaterialDesignFont}" 
+        Loaded="wCustomers_Loaded" 
+        Padding="10">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -53,48 +55,48 @@
 
 
         <Button x:Name="btnSave" Content="Guardar" HorizontalAlignment="Center"  VerticalAlignment="Center"  Grid.Row="1" Width="83" Click="btnSave_Click"  />
-        <Button x:Name="btnDelete" Content="Eliminar" HorizontalAlignment="Center"  VerticalAlignment="Center" Grid.ColumnSpan="2" Grid.Row="1"  />
-        <Button x:Name="btnCancel" Content="Cancelar" HorizontalAlignment="Center"  VerticalAlignment="Center" Grid.Column="1" Grid.Row="1" />
+        <Button x:Name="btnDelete" Content="Eliminar" HorizontalAlignment="Center"  VerticalAlignment="Center" Grid.ColumnSpan="2" Grid.Row="1" Click="btnDelete_Click"  />
+        <Button x:Name="btnCancel" Content="Cancelar" HorizontalAlignment="Center"  VerticalAlignment="Center" Grid.Column="1" Grid.Row="1" Click="btnCancel_Click" />
 
         <Label x:Name="lblCustomerId" Content="Label" HorizontalAlignment="Center"  VerticalAlignment="Center" Grid.Row="2" Width="40" Height="26" />
 
 
         <!--<Label x:Name="lblDocumentType" Content="Tipo documento" HorizontalAlignment="Right"  VerticalAlignment="Center" Grid.Row="3" Height="26"  Width="105"  />-->
-        <ComboBox HorizontalAlignment="Center"   VerticalAlignment="Center"  MinWidth="120" Grid.Row="3" materialDesign:HintAssist.Hint="Tipo documento" Style="{StaticResource MaterialDesignFloatingHintComboBox}" ItemsSource="{Binding DocumentTypes}" DisplayMemberPath="Name" SelectedValuePath="Id"  SelectedItem="{Binding DocumentType}" IsEditable="True"/><ComboBox HorizontalAlignment="Center"   VerticalAlignment="Center"  MinWidth="120" Grid.Row="3" materialDesign:HintAssist.Hint="Tipo documento" Style="{StaticResource MaterialDesignFloatingHintComboBox}" ItemsSource="{Binding DocumentTypes}" DisplayMemberPath="Name" SelectedValuePath="Id"  SelectedItem="{Binding DocumentType}" IsEditable="True"/>
+        <ComboBox HorizontalAlignment="Left"   VerticalAlignment="Center"  MinWidth="120" Grid.Row="3" materialDesign:HintAssist.Hint="Tipo documento" Style="{StaticResource MaterialDesignFloatingHintComboBox}" ItemsSource="{Binding DocumentTypes}" DisplayMemberPath="Name" SelectedValuePath="Id"  SelectedItem="{Binding DocumentType}" IsEditable="True"/>        
         <!--<Label x:Name="lblDocument" Content="Documento" HorizontalAlignment="Right"   VerticalAlignment="Center"  Grid.Column="2" Grid.Row="3" Height="26" Width="77"/>-->
-        <TextBox HorizontalAlignment="Center"   TextWrapping="Wrap" VerticalAlignment="Center" MinWidth="120" Grid.Column="1" Grid.Row="3" materialDesign:HintAssist.Hint="Documento" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="{Binding DocumentNumber}" />
+        <TextBox HorizontalAlignment="Left"   TextWrapping="Wrap" VerticalAlignment="Center" MinWidth="120" Grid.Column="1" Grid.Row="3" materialDesign:HintAssist.Hint="Documento" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="{Binding DocumentNumber}" />
 
         <!--<Label x:Name="lblName" Content="Nombres" HorizontalAlignment="Right"  VerticalAlignment="Center"  Grid.Row="4" Height="26" Width="63" />-->
-        <TextBox HorizontalAlignment="Center"  MinWidth="120" TextWrapping="Wrap" VerticalAlignment="Center" Grid.Row="4" materialDesign:HintAssist.Hint="Nombres" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="{Binding FirstName}"/>
+        <TextBox HorizontalAlignment="Left"  MinWidth="120" TextWrapping="Wrap" VerticalAlignment="Center" Grid.Row="4" materialDesign:HintAssist.Hint="Nombres" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="{Binding FirstName}"/>
         <!--<Label x:Name="lblLastName" Content="Apellidos" HorizontalAlignment="Right"  VerticalAlignment="Center"  Grid.Column="2" Grid.Row="4" Height="26" Width="63" />-->
-        <TextBox HorizontalAlignment="Center" MinWidth="120" TextWrapping="Wrap" VerticalAlignment="Center" Grid.Column="1" Grid.Row="4"  materialDesign:HintAssist.Hint="Apellidos" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="{Binding LastName}"/>
+        <TextBox HorizontalAlignment="Left" MinWidth="120" TextWrapping="Wrap" VerticalAlignment="Center" Grid.Column="1" Grid.Row="4"  materialDesign:HintAssist.Hint="Apellidos" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="{Binding LastName}"/>
 
 
         <!--<Label x:Name="lblDateBird" Content="Fecha nacimiento" HorizontalAlignment="Right"  VerticalAlignment="Center"  Grid.Row="5" Height="26" Width="110" />-->
-        <DatePicker HorizontalAlignment="Center"  VerticalAlignment="Center" MinWidth="120" Grid.Row="5" materialDesign:HintAssist.Hint="Fecha nacimiento" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" SelectedDate="{Binding BirdDate}"/>
+        <DatePicker HorizontalAlignment="Left"  VerticalAlignment="Center" MinWidth="120" Grid.Row="5" materialDesign:HintAssist.Hint="Fecha nacimiento" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" SelectedDate="{Binding DateBird}"/>
         <!--<Label x:Name="lblGender" Content="Genero" HorizontalAlignment="Right"  VerticalAlignment="Center"  Grid.Column="2" Grid.Row="5"  />-->
-        <ComboBox HorizontalAlignment="Center"  VerticalAlignment="Center" Grid.Column="1" Grid.Row="5" MinWidth="120"  materialDesign:HintAssist.Hint="Genero" Style="{StaticResource MaterialDesignFloatingHintComboBox}" SelectedValue="{Binding Gender}" IsEditable="True"  >
-            <ComboBoxItem >Masculino</ComboBoxItem>
-            <ComboBoxItem >Femenino</ComboBoxItem>
-        </ComboBox>
+        <ComboBox HorizontalAlignment="Left"  VerticalAlignment="Center" Grid.Column="1" Grid.Row="5" MinWidth="120"  materialDesign:HintAssist.Hint="Genero" Style="{StaticResource MaterialDesignFloatingHintComboBox}" ItemsSource="{Binding Genders}" SelectedItem="{Binding Gender}" IsEditable="True"  />
+            <!--<ComboBoxItem Content="Masculino"></ComboBoxItem>
+            <ComboBoxItem Content="Femenino"></ComboBoxItem>-->
+        
 
         <!--<Label x:Name="lblAddress" Content="Dirección" HorizontalAlignment="Right"  VerticalAlignment="Center"  Grid.Row="6" />-->
-        <TextBox HorizontalAlignment="Center"  TextWrapping="Wrap" MinWidth="120" VerticalAlignment="Center" Grid.Row="6" materialDesign:HintAssist.Hint="Dirección" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="{Binding Address}" />
+        <TextBox HorizontalAlignment="Left"  TextWrapping="Wrap" MinWidth="120" VerticalAlignment="Center" Grid.Row="6" materialDesign:HintAssist.Hint="Dirección" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="{Binding Address}" />
         <!--<Label x:Name="lblPhoneNumber" Content="Teléfono" HorizontalAlignment="Right"  VerticalAlignment="Center"  Grid.Column="2" Grid.Row="6" />-->
-        <TextBox HorizontalAlignment="Center"  TextWrapping="Wrap" MinWidth="120" VerticalAlignment="Center" Grid.Column="1" Grid.Row="6" materialDesign:HintAssist.Hint="Teléfono" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Text="{Binding TelephoneNumber}"/>
+        <TextBox HorizontalAlignment="Left"  TextWrapping="Wrap" MinWidth="120" VerticalAlignment="Center" Grid.Column="1" Grid.Row="6" materialDesign:HintAssist.Hint="Teléfono" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Text="{Binding PhoneNumber}"/>
 
         <!--<Label x:Name="lblCellphoneNumber" Content="Celular" HorizontalAlignment="Center"  VerticalAlignment="Center"  Grid.Row="7" />-->
-        <TextBox HorizontalAlignment="Center" TextWrapping="Wrap" MinWidth="120" VerticalAlignment="Center" Grid.Row="7" Grid.Column="0"  materialDesign:HintAssist.Hint="Celular" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="{Binding CellphoneNumber}"/>
+        <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" MinWidth="120" VerticalAlignment="Center" Grid.Row="7" Grid.Column="0"  materialDesign:HintAssist.Hint="Celular" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="{Binding CellphoneNumber}"/>
         <!--<TextBox x:Name="txtCellphoneNumberHint" HorizontalAlignment="Center"  TextWrapping="Wrap" MinWidth="120" VerticalAlignment="Center" Grid.Row="7" Grid.Column="2"  materialDesign:HintAssist.Hint="Floating Hint" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />-->
 
-        <ComboBox HorizontalAlignment="Center"   VerticalAlignment="Center"  MinWidth="120" Grid.Row="7" materialDesign:HintAssist.Hint="Ciudad" Style="{StaticResource MaterialDesignFloatingHintComboBox}" ItemsSource="{Binding Cities}" DisplayMemberPath="Name" SelectedValuePath="Id"  SelectedItem="{Binding City}" IsEditable="True"/>
+        <ComboBox HorizontalAlignment="Left"   VerticalAlignment="Center"  MinWidth="120" Grid.Row="7" Grid.Column="1" materialDesign:HintAssist.Hint="Ciudad" Style="{StaticResource MaterialDesignFloatingHintComboBox}" ItemsSource="{Binding Cities}" DisplayMemberPath="Name" SelectedValuePath="Id"  SelectedItem="{Binding City}" IsEditable="True"/>
 
-        <CheckBox Content="Activo" Grid.Column="1" HorizontalAlignment="Left" Margin="0,0,0,0" Grid.Row="8" VerticalAlignment="Center" materialDesign:HintAssist.Hint="Activo" IsChecked="{Binding Active}"/>
+        <CheckBox Content="Activo"  HorizontalAlignment="Left" Margin="0,0,0,0" Grid.Row="8" VerticalAlignment="Center" materialDesign:HintAssist.Hint="Activo" IsChecked="{Binding Active}"/>
 
-        <DataGrid HorizontalAlignment="Center" Margin="15,13,5,3" VerticalAlignment="Center" Grid.ColumnSpan="4" Height="160" Width="553" Grid.Row="9" ItemsSource="{Binding CustomerList}">
+        <DataGrid HorizontalAlignment="Center" Margin="15,13,5,3" AutoGenerateColumns="False" VerticalAlignment="Center" Grid.ColumnSpan="4" Width="553" Grid.Row="9" ItemsSource="{Binding CustomerList}" SelectionChanged="DataGrid_SelectionChanged" CanUserAddRows="False" CanUserDeleteRows="True"  > 
             <DataGrid.Columns>
-                <DataGridTextColumn  Binding="{Binding Document}" Width="*" Header="Identificacion"/>
-                <DataGridTextColumn Binding="{Binding FristName}" Width="*" ClipboardContentBinding="{x:Null}" Header="Nombres"/>
+                <DataGridTextColumn  Binding="{Binding DocumentNumber}" Width="*" Header="Identificacion"/>
+                <DataGridTextColumn Binding="{Binding FirstName}" Width="*" ClipboardContentBinding="{x:Null}" Header="Nombres"/>
                 <DataGridTextColumn  Binding="{Binding LastName}" Width="*" Header="Apellidos"/>
                 <DataGridTextColumn  Binding="{Binding Gender}" Width="*" Header="Genero"/>
                 <DataGridTextColumn  Binding="{Binding Active}" Width="*" Header="Activo"/>                

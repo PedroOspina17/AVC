@@ -44,7 +44,25 @@ namespace AvaPos
         }
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            oCustomer.Save();
+            oCustomer.FirstName = "Prueba";
+            //oCustomer.Save();
+        }
+
+        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+            oCustomer = ((DataGrid)sender).SelectedItem as CustomerViewModel;
+            oCustomer.Refresh();
+        }
+
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            oCustomer.Delete();
+        }
+
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            oCustomer.Clean();
         }
         
     }

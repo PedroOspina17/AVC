@@ -5,6 +5,8 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+using System.Reflection;
 
 namespace Business.ViewModel
 {
@@ -15,14 +17,27 @@ namespace Business.ViewModel
         private Model.Customer ModelCustomer = new Model.Customer();
         private Model.PosEntities db = new Model.PosEntities();
 
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void OnPropertyChange([CallerMemberName] string PropertyName = "")
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(PropertyName));
+            }
+        }
+
+
         public CustomerViewModel()
         {
-
+            this.ModelCustomer.Person = this.ModelPerson;
         }
         public CustomerViewModel(Model.Customer oCustomer)
         {
             this.ModelCustomer = oCustomer;
             this.ModelPerson = db.Person.Find(oCustomer.PersonId);
+            this.ModelCustomer.Person = this.ModelPerson;
         }
 
         public Model.DocumentType DocumentType
@@ -30,14 +45,14 @@ namespace Business.ViewModel
             get { return ModelPerson.DocumentType; }
             set { ModelPerson.DocumentType = value; OnPropertyChange(); }
         }
-
-        public string Document
+        [MaxLength(5, ErrorMessage = "Error personalizado")]
+        public string DocumentNumber
         {
             get { return ModelPerson.DocumentNumber; }
             set { ModelPerson.DocumentNumber = value; OnPropertyChange(); }
         }
 
-        public string Name
+        public string FirstName
         {
             get
             {
@@ -45,7 +60,7 @@ namespace Business.ViewModel
             }
             set
             {
-                ModelPerson.FirstName = value; OnPropertyChange(); 
+                ModelPerson.FirstName = value; OnPropertyChange();
             }
         }
 
@@ -57,7 +72,7 @@ namespace Business.ViewModel
             }
             set
             {
-                ModelPerson.LastName = value; OnPropertyChange(); 
+                ModelPerson.LastName = value; OnPropertyChange();
             }
         }
 
@@ -79,7 +94,7 @@ namespace Business.ViewModel
             }
             set
             {
-                ModelPerson.DateBird = value; OnPropertyChange(); 
+                ModelPerson.DateBird = value; OnPropertyChange();
             }
         }
 
@@ -87,7 +102,7 @@ namespace Business.ViewModel
         {
             get
             {
-                return ModelPerson.Gender == "M" ? "Masculino" : "Femenino";
+                return (ModelPerson.Gender ?? "") == "" ? "" : ModelPerson.Gender == "M" ? "Masculino" : "Femenino";
             }
             set
             {
@@ -103,7 +118,7 @@ namespace Business.ViewModel
             }
             set
             {
-                ModelPerson.Address = value; OnPropertyChange(); 
+                ModelPerson.Address = value; OnPropertyChange();
             }
         }
         public String PhoneNumber
@@ -114,7 +129,7 @@ namespace Business.ViewModel
             }
             set
             {
-                ModelPerson.PhoneNumber = value; OnPropertyChange(); 
+                ModelPerson.PhoneNumber = value; OnPropertyChange();
             }
         }
         public String CellphoneNumber
@@ -125,7 +140,7 @@ namespace Business.ViewModel
             }
             set
             {
-                ModelPerson.CellphoneNumber = value; OnPropertyChange(); 
+                ModelPerson.CellphoneNumber = value; OnPropertyChange();
             }
         }
 
@@ -137,18 +152,42 @@ namespace Business.ViewModel
             }
             set
             {
-                ModelCustomer.Active = value; OnPropertyChange(); 
+                ModelCustomer.Active = value; OnPropertyChange();
             }
         }
+
+        public Model.City City
+        {
+            get
+            {
+                return ModelPerson.City;
+            }
+            set
+            {
+                ModelPerson.City = value; OnPropertyChange();
+            }
+        }
+
+
+
 
         public List<Model.DocumentType> DocumentTypes
         {
             get { return db.DocumentType.ToList(); }
         }
 
+        public List<Model.City> Cities
+        {
+            get { return db.City.ToList(); }
+        }
 
+        public enum eGenders
+        {
+            Masculino,
+            Femenino
+        }
+        public List<string> Genders { get { return (new string[] { "Masculino", "Femenino" }).ToList(); } }
 
-        //public List<CustomerViewModel> GetAll()
         public List<CustomerViewModel> CustomerList
         {
             get
@@ -179,31 +218,87 @@ namespace Business.ViewModel
         {
             try
             {
-                if(ModelPerson.Id > 0)
+                if (ModelPerson != null && ModelCustomer != null)
                 {
-                    db.Entry<Model.Person>(ModelPerson).State = System.Data.Entity.EntityState.Modified;
+                    if (ModelPerson.Id > 0)
+                    {
+                        db.Entry<Model.Person>(ModelPerson).State = System.Data.Entity.EntityState.Modified;
+                        if (ModelCustomer.Id > 0)
+                        {
+                            db.Entry<Model.Customer>(ModelCustomer).State = System.Data.Entity.EntityState.Modified;
+                        }
+
+                    }
+                    else
+                    {
+                        this.ModelPerson.CreationDate = DateTime.Now;
+                        
+                        db.Person.Add(ModelPerson);
+                        db.SaveChanges();                        
+                        // ToDo: Verify if the person exits but the customer is not created
+                        db.Customer.Add(ModelCustomer);
+
+                    }
+                    db.SaveChanges();
+                    //Clean();
+                    OnPropertyChange("CustomerList");
                 }
                 else
                 {
-                    db.Person.Add(ModelPerson);
+                    throw new Exception("The models are null. Cant save with null models");
                 }
-                db.SaveChanges();
-                OnPropertyChange("CustomerList");
             }
-            catch (Exception EX)
+            catch (Exception ex)
             {
-                
-                throw;
+
+                throw ex;
             }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
 
-        public void OnPropertyChange([CallerMemberName] string PropertyName = "")
+        public void Delete()
         {
-            if(PropertyChanged != null)
+            try
             {
-                PropertyChanged(this, new PropertyChangedEventArgs(PropertyName));
+                if (this.ModelCustomer != null && this.ModelCustomer.Id > 0)
+                {
+                    db.Customer.Remove(this.ModelCustomer);
+                    if (this.ModelPerson != null && this.ModelPerson.Id > 0)
+                    {
+                        db.Person.Remove(this.ModelPerson);
+                    }
+                    db.SaveChanges();
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public void Clean()
+        {
+            try
+            {
+                this.ModelPerson = new Model.Person();
+                this.ModelCustomer = new Model.Customer();
+                Refresh();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public void Refresh()
+        {
+            PropertyInfo[] properties = this.GetType().GetProperties();
+            foreach (PropertyInfo property in properties)
+            {
+                OnPropertyChange(property.Name);
             }
         }
     }
