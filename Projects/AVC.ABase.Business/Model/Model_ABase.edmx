@@ -1,0 +1,915 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ABaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DepartmentId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="200" />
+          <Property Name="Active" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PersonId" Type="int" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Deparment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="200" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DocumentType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="200" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PersonId" Type="int" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Gender">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Module">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ModTypeId" Type="int" Nullable="false" />
+          <Property Name="ParentId" Type="int" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="200" />
+          <Property Name="Path" Type="varchar" MaxLength="500" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ModulesByProfiles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ModuleId" Type="int" Nullable="false" />
+          <Property Name="ProfileId" Type="int" Nullable="false" />
+          <Property Name="CanRead" Type="bit" Nullable="false" />
+          <Property Name="CanWrite" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ModuleType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="200" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PaymentType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="250" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DocumentTypeId" Type="int" Nullable="false" />
+          <Property Name="CityId" Type="int" Nullable="false" />
+          <Property Name="DocumentNumber" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DateBird" Type="date" Nullable="false" />
+          <Property Name="GenderId" Type="tinyint" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="PhoneNumber" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="CellphoneNumber" Type="varchar" MaxLength="12" />
+          <Property Name="CreationDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="250" />
+          <Property Name="Price" Type="money" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="TaxPercent" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Profile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="200" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserAccount">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmployeeId" Type="int" Nullable="false" />
+          <Property Name="ProfileId" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="CreationDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__City__Department__239E4DCF">
+          <End Role="Deparment" Type="Self.Deparment" Multiplicity="1" />
+          <End Role="City" Type="Self.City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Deparment">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="City">
+              <PropertyRef Name="DepartmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Customer__Person__30F848ED">
+          <End Role="Person" Type="Self.Person" Multiplicity="1" />
+          <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="PersonId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Employee__Person__2B3F6F97">
+          <End Role="Person" Type="Self.Person" Multiplicity="1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="PersonId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Module__ModTypeI__15502E78">
+          <End Role="ModuleType" Type="Self.ModuleType" Multiplicity="1" />
+          <End Role="Module" Type="Self.Module" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ModuleType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Module">
+              <PropertyRef Name="ModTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Module__ParentId__164452B1">
+          <End Role="Module" Type="Self.Module" Multiplicity="0..1" />
+          <End Role="Module1" Type="Self.Module" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Module">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Module1">
+              <PropertyRef Name="ParentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ModulesBy__Modul__1BFD2C07">
+          <End Role="Module" Type="Self.Module" Multiplicity="1" />
+          <End Role="ModulesByProfiles" Type="Self.ModulesByProfiles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Module">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ModulesByProfiles">
+              <PropertyRef Name="ModuleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ModulesBy__Profi__1CF15040">
+          <End Role="Profile" Type="Self.Profile" Multiplicity="1" />
+          <End Role="ModulesByProfiles" Type="Self.ModulesByProfiles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ModulesByProfiles">
+              <PropertyRef Name="ProfileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Person__CityId__276EDEB3">
+          <End Role="City" Type="Self.City" Multiplicity="1" />
+          <End Role="Person" Type="Self.Person" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Person">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Person__DocTypeI__267ABA7A">
+          <End Role="DocumentType" Type="Self.DocumentType" Multiplicity="1" />
+          <End Role="Person" Type="Self.Person" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DocumentType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Person">
+              <PropertyRef Name="DocumentTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserAccou__Emplo__5070F446">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="UserAccount" Type="Self.UserAccount" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserAccount">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserAccou__Profi__5165187F">
+          <End Role="Profile" Type="Self.Profile" Multiplicity="1" />
+          <End Role="UserAccount" Type="Self.UserAccount" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserAccount">
+              <PropertyRef Name="ProfileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Person_Gender">
+          <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
+          <End Role="Person" Type="Self.Person" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gender">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Person">
+              <PropertyRef Name="GenderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ABaseModelStoreContainer">
+          <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Deparment" EntityType="Self.Deparment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DocumentType" EntityType="Self.DocumentType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gender" EntityType="Self.Gender" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Module" EntityType="Self.Module" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ModulesByProfiles" EntityType="Self.ModulesByProfiles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ModuleType" EntityType="Self.ModuleType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PaymentType" EntityType="Self.PaymentType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Person" EntityType="Self.Person" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Profile" EntityType="Self.Profile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserAccount" EntityType="Self.UserAccount" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__City__Department__239E4DCF" Association="Self.FK__City__Department__239E4DCF">
+            <End Role="Deparment" EntitySet="Deparment" />
+            <End Role="City" EntitySet="City" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Customer__Person__30F848ED" Association="Self.FK__Customer__Person__30F848ED">
+            <End Role="Person" EntitySet="Person" />
+            <End Role="Customer" EntitySet="Customer" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Employee__Person__2B3F6F97" Association="Self.FK__Employee__Person__2B3F6F97">
+            <End Role="Person" EntitySet="Person" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Module__ModTypeI__15502E78" Association="Self.FK__Module__ModTypeI__15502E78">
+            <End Role="ModuleType" EntitySet="ModuleType" />
+            <End Role="Module" EntitySet="Module" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Module__ParentId__164452B1" Association="Self.FK__Module__ParentId__164452B1">
+            <End Role="Module" EntitySet="Module" />
+            <End Role="Module1" EntitySet="Module" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ModulesBy__Modul__1BFD2C07" Association="Self.FK__ModulesBy__Modul__1BFD2C07">
+            <End Role="Module" EntitySet="Module" />
+            <End Role="ModulesByProfiles" EntitySet="ModulesByProfiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ModulesBy__Profi__1CF15040" Association="Self.FK__ModulesBy__Profi__1CF15040">
+            <End Role="Profile" EntitySet="Profile" />
+            <End Role="ModulesByProfiles" EntitySet="ModulesByProfiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Person__CityId__276EDEB3" Association="Self.FK__Person__CityId__276EDEB3">
+            <End Role="City" EntitySet="City" />
+            <End Role="Person" EntitySet="Person" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Person__DocTypeI__267ABA7A" Association="Self.FK__Person__DocTypeI__267ABA7A">
+            <End Role="DocumentType" EntitySet="DocumentType" />
+            <End Role="Person" EntitySet="Person" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserAccou__Emplo__5070F446" Association="Self.FK__UserAccou__Emplo__5070F446">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="UserAccount" EntitySet="UserAccount" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserAccou__Profi__5165187F" Association="Self.FK__UserAccou__Profi__5165187F">
+            <End Role="Profile" EntitySet="Profile" />
+            <End Role="UserAccount" EntitySet="UserAccount" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Person_Gender" Association="Self.FK_Person_Gender">
+            <End Role="Gender" EntitySet="Gender" />
+            <End Role="Person" EntitySet="Person" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ABaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DepartmentId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Active" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Deparment" Relationship="Self.FK__City__Department__239E4DCF" FromRole="City" ToRole="Deparment" />
+          <NavigationProperty Name="Person" Relationship="Self.FK__Person__CityId__276EDEB3" FromRole="City" ToRole="Person" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PersonId" Type="Int32" Nullable="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Person" Relationship="Self.FK__Customer__Person__30F848ED" FromRole="Customer" ToRole="Person" />
+        </EntityType>
+        <EntityType Name="Deparment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="City" Relationship="Self.FK__City__Department__239E4DCF" FromRole="Deparment" ToRole="City" />
+        </EntityType>
+        <EntityType Name="DocumentType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Person" Relationship="ABaseModel.FK__Person__DocTypeI__267ABA7A" FromRole="DocumentType" ToRole="Person" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PersonId" Type="Int32" Nullable="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Person" Relationship="Self.FK__Employee__Person__2B3F6F97" FromRole="Employee" ToRole="Person" />
+          <NavigationProperty Name="UserAccount" Relationship="Self.FK__UserAccou__Emplo__5070F446" FromRole="Employee" ToRole="UserAccount" />
+        </EntityType>
+        <EntityType Name="Module">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ModTypeId" Type="Int32" Nullable="false" />
+          <Property Name="ParentId" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Path" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="ModuleType" Relationship="Self.FK__Module__ModTypeI__15502E78" FromRole="Module" ToRole="ModuleType" />
+          <NavigationProperty Name="Module1" Relationship="Self.FK__Module__ParentId__164452B1" FromRole="Module" ToRole="Module1" />
+          <NavigationProperty Name="Module2" Relationship="Self.FK__Module__ParentId__164452B1" FromRole="Module1" ToRole="Module" />
+          <NavigationProperty Name="ModulesByProfiles" Relationship="Self.FK__ModulesBy__Modul__1BFD2C07" FromRole="Module" ToRole="ModulesByProfiles" />
+        </EntityType>
+        <EntityType Name="ModulesByProfiles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ModuleId" Type="Int32" Nullable="false" />
+          <Property Name="ProfileId" Type="Int32" Nullable="false" />
+          <Property Name="CanRead" Type="Boolean" Nullable="false" />
+          <Property Name="CanWrite" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Module" Relationship="Self.FK__ModulesBy__Modul__1BFD2C07" FromRole="ModulesByProfiles" ToRole="Module" />
+          <NavigationProperty Name="Profile" Relationship="Self.FK__ModulesBy__Profi__1CF15040" FromRole="ModulesByProfiles" ToRole="Profile" />
+        </EntityType>
+        <EntityType Name="ModuleType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Module" Relationship="Self.FK__Module__ModTypeI__15502E78" FromRole="ModuleType" ToRole="Module" />
+        </EntityType>
+        <EntityType Name="PaymentType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CityId" Type="Int32" Nullable="false" />
+          <Property Name="DocumentNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DateBird" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CellphoneNumber" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="City" Relationship="Self.FK__Person__CityId__276EDEB3" FromRole="Person" ToRole="City" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK__Customer__Person__30F848ED" FromRole="Person" ToRole="Customer" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK__Employee__Person__2B3F6F97" FromRole="Person" ToRole="Employee" />
+          <Property Name="GenderId" Type="Byte" Nullable="false" />
+          <Property Name="DocumentTypeId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DocumentType" Relationship="ABaseModel.FK__Person__DocTypeI__267ABA7A" FromRole="Person" ToRole="DocumentType" />
+          <NavigationProperty Name="Gender" Relationship="ABaseModel.FK_Person_Gender" FromRole="Person" ToRole="Gender" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="TaxPercent" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Profile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="ModulesByProfiles" Relationship="Self.FK__ModulesBy__Profi__1CF15040" FromRole="Profile" ToRole="ModulesByProfiles" />
+          <NavigationProperty Name="UserAccount" Relationship="Self.FK__UserAccou__Profi__5165187F" FromRole="Profile" ToRole="UserAccount" />
+        </EntityType>
+        <EntityType Name="UserAccount">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeId" Type="Int32" Nullable="false" />
+          <Property Name="ProfileId" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK__UserAccou__Emplo__5070F446" FromRole="UserAccount" ToRole="Employee" />
+          <NavigationProperty Name="Profile" Relationship="Self.FK__UserAccou__Profi__5165187F" FromRole="UserAccount" ToRole="Profile" />
+        </EntityType>
+        <Association Name="FK__City__Department__239E4DCF">
+          <End Role="Deparment" Type="Self.Deparment" Multiplicity="1" />
+          <End Role="City" Type="Self.City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Deparment">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="City">
+              <PropertyRef Name="DepartmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Person__CityId__276EDEB3">
+          <End Role="City" Type="Self.City" Multiplicity="1" />
+          <End Role="Person" Type="Self.Person" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Person">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Customer__Person__30F848ED">
+          <End Role="Person" Type="Self.Person" Multiplicity="1" />
+          <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="PersonId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Employee__Person__2B3F6F97">
+          <End Role="Person" Type="Self.Person" Multiplicity="1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="PersonId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserAccou__Emplo__5070F446">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="UserAccount" Type="Self.UserAccount" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserAccount">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Module__ModTypeI__15502E78">
+          <End Role="ModuleType" Type="Self.ModuleType" Multiplicity="1" />
+          <End Role="Module" Type="Self.Module" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ModuleType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Module">
+              <PropertyRef Name="ModTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Module__ParentId__164452B1">
+          <End Role="Module" Type="Self.Module" Multiplicity="0..1" />
+          <End Role="Module1" Type="Self.Module" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Module">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Module1">
+              <PropertyRef Name="ParentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ModulesBy__Modul__1BFD2C07">
+          <End Role="Module" Type="Self.Module" Multiplicity="1" />
+          <End Role="ModulesByProfiles" Type="Self.ModulesByProfiles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Module">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ModulesByProfiles">
+              <PropertyRef Name="ModuleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ModulesBy__Profi__1CF15040">
+          <End Role="Profile" Type="Self.Profile" Multiplicity="1" />
+          <End Role="ModulesByProfiles" Type="Self.ModulesByProfiles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ModulesByProfiles">
+              <PropertyRef Name="ProfileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserAccou__Profi__5165187F">
+          <End Role="Profile" Type="Self.Profile" Multiplicity="1" />
+          <End Role="UserAccount" Type="Self.UserAccount" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserAccount">
+              <PropertyRef Name="ProfileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ABaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="City" EntityType="Self.City" />
+          <EntitySet Name="Customer" EntityType="Self.Customer" />
+          <EntitySet Name="Deparment" EntityType="Self.Deparment" />
+          <EntitySet Name="DocumentType" EntityType="Self.DocumentType" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" />
+          <EntitySet Name="Module" EntityType="Self.Module" />
+          <EntitySet Name="ModulesByProfiles" EntityType="Self.ModulesByProfiles" />
+          <EntitySet Name="ModuleType" EntityType="Self.ModuleType" />
+          <EntitySet Name="PaymentType" EntityType="Self.PaymentType" />
+          <EntitySet Name="Person" EntityType="Self.Person" />
+          <EntitySet Name="Product" EntityType="Self.Product" />
+          <EntitySet Name="Profile" EntityType="Self.Profile" />
+          <EntitySet Name="UserAccount" EntityType="Self.UserAccount" />
+          <AssociationSet Name="FK__City__Department__239E4DCF" Association="Self.FK__City__Department__239E4DCF">
+            <End Role="Deparment" EntitySet="Deparment" />
+            <End Role="City" EntitySet="City" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Person__CityId__276EDEB3" Association="Self.FK__Person__CityId__276EDEB3">
+            <End Role="City" EntitySet="City" />
+            <End Role="Person" EntitySet="Person" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Customer__Person__30F848ED" Association="Self.FK__Customer__Person__30F848ED">
+            <End Role="Person" EntitySet="Person" />
+            <End Role="Customer" EntitySet="Customer" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Employee__Person__2B3F6F97" Association="Self.FK__Employee__Person__2B3F6F97">
+            <End Role="Person" EntitySet="Person" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserAccou__Emplo__5070F446" Association="Self.FK__UserAccou__Emplo__5070F446">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="UserAccount" EntitySet="UserAccount" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Module__ModTypeI__15502E78" Association="Self.FK__Module__ModTypeI__15502E78">
+            <End Role="ModuleType" EntitySet="ModuleType" />
+            <End Role="Module" EntitySet="Module" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Module__ParentId__164452B1" Association="Self.FK__Module__ParentId__164452B1">
+            <End Role="Module" EntitySet="Module" />
+            <End Role="Module1" EntitySet="Module" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ModulesBy__Modul__1BFD2C07" Association="Self.FK__ModulesBy__Modul__1BFD2C07">
+            <End Role="Module" EntitySet="Module" />
+            <End Role="ModulesByProfiles" EntitySet="ModulesByProfiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ModulesBy__Profi__1CF15040" Association="Self.FK__ModulesBy__Profi__1CF15040">
+            <End Role="Profile" EntitySet="Profile" />
+            <End Role="ModulesByProfiles" EntitySet="ModulesByProfiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserAccou__Profi__5165187F" Association="Self.FK__UserAccou__Profi__5165187F">
+            <End Role="Profile" EntitySet="Profile" />
+            <End Role="UserAccount" EntitySet="UserAccount" />
+          </AssociationSet>
+          <EntitySet Name="Gender" EntityType="ABaseModel.Gender" />
+          <AssociationSet Name="FK__Person__DocTypeI__267ABA7A" Association="ABaseModel.FK__Person__DocTypeI__267ABA7A">
+            <End Role="DocumentType" EntitySet="DocumentType" />
+            <End Role="Person" EntitySet="Person" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Person_Gender" Association="ABaseModel.FK_Person_Gender">
+            <End Role="Gender" EntitySet="Gender" />
+            <End Role="Person" EntitySet="Person" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Gender">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Person" Relationship="ABaseModel.FK_Person_Gender" FromRole="Gender" ToRole="Person" />
+        </EntityType>
+        <Association Name="FK__Person__DocTypeI__267ABA7A">
+          <End Type="ABaseModel.DocumentType" Role="DocumentType" Multiplicity="1" />
+          <End Type="ABaseModel.Person" Role="Person" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DocumentType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Person">
+              <PropertyRef Name="DocumentTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Person_Gender">
+          <End Type="ABaseModel.Gender" Role="Gender" Multiplicity="1" />
+          <End Type="ABaseModel.Person" Role="Person" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gender">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Person">
+              <PropertyRef Name="GenderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ABaseModelStoreContainer" CdmEntityContainer="ABaseEntities">
+          <EntitySetMapping Name="City">
+            <EntityTypeMapping TypeName="ABaseModel.City">
+              <MappingFragment StoreEntitySet="City">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customer">
+            <EntityTypeMapping TypeName="ABaseModel.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Deparment">
+            <EntityTypeMapping TypeName="ABaseModel.Deparment">
+              <MappingFragment StoreEntitySet="Deparment">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DocumentType">
+            <EntityTypeMapping TypeName="ABaseModel.DocumentType">
+              <MappingFragment StoreEntitySet="DocumentType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employee">
+            <EntityTypeMapping TypeName="ABaseModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Module">
+            <EntityTypeMapping TypeName="ABaseModel.Module">
+              <MappingFragment StoreEntitySet="Module">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ModTypeId" ColumnName="ModTypeId" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Path" ColumnName="Path" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ModulesByProfiles">
+            <EntityTypeMapping TypeName="ABaseModel.ModulesByProfiles">
+              <MappingFragment StoreEntitySet="ModulesByProfiles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ModuleId" ColumnName="ModuleId" />
+                <ScalarProperty Name="ProfileId" ColumnName="ProfileId" />
+                <ScalarProperty Name="CanRead" ColumnName="CanRead" />
+                <ScalarProperty Name="CanWrite" ColumnName="CanWrite" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ModuleType">
+            <EntityTypeMapping TypeName="ABaseModel.ModuleType">
+              <MappingFragment StoreEntitySet="ModuleType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PaymentType">
+            <EntityTypeMapping TypeName="ABaseModel.PaymentType">
+              <MappingFragment StoreEntitySet="PaymentType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Person">
+            <EntityTypeMapping TypeName="ABaseModel.Person">
+              <MappingFragment StoreEntitySet="Person">
+                <ScalarProperty Name="DocumentTypeId" ColumnName="DocumentTypeId" />
+                <ScalarProperty Name="GenderId" ColumnName="GenderId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="DocumentNumber" ColumnName="DocumentNumber" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="DateBird" ColumnName="DateBird" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="CellphoneNumber" ColumnName="CellphoneNumber" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Product">
+            <EntityTypeMapping TypeName="ABaseModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="TaxPercent" ColumnName="TaxPercent" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Profile">
+            <EntityTypeMapping TypeName="ABaseModel.Profile">
+              <MappingFragment StoreEntitySet="Profile">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserAccount">
+            <EntityTypeMapping TypeName="ABaseModel.UserAccount">
+              <MappingFragment StoreEntitySet="UserAccount">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+                <ScalarProperty Name="ProfileId" ColumnName="ProfileId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Gender">
+            <EntityTypeMapping TypeName="ABaseModel.Gender">
+              <MappingFragment StoreEntitySet="Gender">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

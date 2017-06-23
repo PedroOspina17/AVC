@@ -1,0 +1,17 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# SQL Server Management Studio Solution File, Format Version 12.00
+Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "AVC.ABase", "AVC.ABase\AVC.ABase.ssmssqlproj", "{E5C13AAC-6812-48C6-93DD-242E5EF028BC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Default|Default = Default|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E98184B0-F76D-403D-9914-845B03E0EAD4}.Default|Default.ActiveCfg = Default
+		{E5C13AAC-6812-48C6-93DD-242E5EF028BC}.Default|Default.ActiveCfg = Default
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

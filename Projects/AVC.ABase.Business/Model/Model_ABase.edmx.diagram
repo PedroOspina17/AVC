@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9a6ad78bc17c40dba65cb3e3c987d296" Name="Diagram1">
+        <EntityTypeShape EntityType="ABaseModel.City" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ABaseModel.Customer" Width="1.5" PointX="7.5" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ABaseModel.Deparment" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ABaseModel.DocumentType" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ABaseModel.Employee" Width="1.5" PointX="7.5" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ABaseModel.Module" Width="1.5" PointX="12" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="ABaseModel.ModulesByProfiles" Width="1.5" PointX="14.25" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ABaseModel.ModuleType" Width="1.5" PointX="9.75" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ABaseModel.PaymentType" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ABaseModel.Person" Width="1.5" PointX="5.25" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ABaseModel.Product" Width="1.5" PointX="2.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ABaseModel.Profile" Width="1.5" PointX="7.5" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ABaseModel.UserAccount" Width="1.5" PointX="9.75" PointY="4.625" IsExpanded="true" />
+        <AssociationConnector Association="ABaseModel.FK__City__Department__239E4DCF" ManuallyRouted="false" />
+        <AssociationConnector Association="ABaseModel.FK__Person__CityId__276EDEB3" ManuallyRouted="false" />
+        <AssociationConnector Association="ABaseModel.FK__Customer__Person__30F848ED" ManuallyRouted="false" />
+        <AssociationConnector Association="ABaseModel.FK__Employee__Person__2B3F6F97" ManuallyRouted="false" />
+        <AssociationConnector Association="ABaseModel.FK__UserAccou__Emplo__5070F446" ManuallyRouted="false" />
+        <AssociationConnector Association="ABaseModel.FK__Module__ModTypeI__15502E78" ManuallyRouted="false" />
+        <AssociationConnector Association="ABaseModel.FK__Module__ParentId__164452B1" ManuallyRouted="false" />
+        <AssociationConnector Association="ABaseModel.FK__ModulesBy__Modul__1BFD2C07" ManuallyRouted="false" />
+        <AssociationConnector Association="ABaseModel.FK__ModulesBy__Profi__1CF15040" ManuallyRouted="false" />
+        <AssociationConnector Association="ABaseModel.FK__UserAccou__Profi__5165187F" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ABaseModel.Gender" Width="1.5" PointX="10.375" PointY="0.75" />
+        <AssociationConnector Association="ABaseModel.FK__Person__DocTypeI__267ABA7A" />
+        <AssociationConnector Association="ABaseModel.FK_Person_Gender" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
