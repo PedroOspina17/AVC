@@ -34,5 +34,20 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
+        <Label Content="Administracion de productos" HorizontalAlignment="Center"  VerticalAlignment="Center" FontFamily="Dreamscape Sans" Grid.ColumnSpan="2"  />
+        <Button x:Name="btnSave" Content="Guardar" HorizontalAlignment="Center"  VerticalAlignment="Center"  Grid.Row="1" Width="83" Click="btnSave_Click"  />
+        <Button x:Name="btnDelete" Content="Eliminar" HorizontalAlignment="Center"  VerticalAlignment="Center" Grid.ColumnSpan="2" Grid.Row="1" Click="btnDelete_Click"  />
+        <Button x:Name="btnCancel" Content="Cancelar" HorizontalAlignment="Center"  VerticalAlignment="Center" Grid.Column="1" Grid.Row="1" Click="btnCancel_Click" />       
+        <DataGrid  AutoGenerateColumns="False" Grid.ColumnSpan="4" Grid.Row="8" ItemsSource="{Binding CustomerList}" SelectionChanged="DataGrid_SelectionChanged" CanUserAddRows="False" CanUserDeleteRows="True" Margin="0,5,0,0"  >
+            <DataGrid.Columns>
+                <DataGridTextColumn  Binding="{Binding DocumentType.Name}" Width="*" Header="Referencia"/>
+                <DataGridTextColumn  Binding="{Binding DocumentType.Name}" Width="*" Header="Nombre"/>
+                <DataGridTextColumn  Binding="{Binding DocumentType.Name}" Width="*" Header="Cod.Barras"/>
+                <DataGridTextColumn  Binding="{Binding DocumentNumber}" Width="*" Header="Descripcion"/>
+                <DataGridTextColumn Binding="{Binding FirstName}" Width="*"  Header="Precio"/>
+                <DataGridTextColumn  Binding="{Binding LastName}" Width="*" Header="Porcentaje"/>
+            </DataGrid.Columns>
+
+        </DataGrid>
     </Grid>
 </Window>
