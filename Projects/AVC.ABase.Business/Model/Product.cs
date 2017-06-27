@@ -20,5 +20,7 @@ namespace AVC.ABase.Business.Model
         public decimal Price { get; set; }
         public bool Active { get; set; }
         public double TaxPercent { get; set; }
+        public string Reference { get; set; }
+        public string BarCode { get; set; }
     }
 }
