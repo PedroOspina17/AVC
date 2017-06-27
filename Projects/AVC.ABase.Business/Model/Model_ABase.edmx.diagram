@@ -15,7 +15,7 @@
         <EntityTypeShape EntityType="ABaseModel.ModuleType" Width="1.5" PointX="9.75" PointY="9.625" IsExpanded="true" />
         <EntityTypeShape EntityType="ABaseModel.PaymentType" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ABaseModel.Person" Width="1.5" PointX="5.25" PointY="2.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ABaseModel.Product" Width="1.5" PointX="2.875" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ABaseModel.Product" Width="1.5" PointX="2.75" PointY="7.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ABaseModel.Profile" Width="1.5" PointX="7.5" PointY="7.875" IsExpanded="true" />
         <EntityTypeShape EntityType="ABaseModel.UserAccount" Width="1.5" PointX="9.75" PointY="4.625" IsExpanded="true" />
         <AssociationConnector Association="ABaseModel.FK__City__Department__239E4DCF" ManuallyRouted="false" />
